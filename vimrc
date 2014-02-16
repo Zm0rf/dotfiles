@@ -12,3 +12,7 @@ set expandtab
 
 " PHP autocomplete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+
+" swap file directory
+set dir=~/.vimswap
