@@ -8,7 +8,7 @@ set number
 set smartindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
+" set expandtab
 
 " PHP autocomplete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -16,3 +16,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " swap file directory
 set dir=~/.vimswap
+
+
+set list!
+set listchars=tab:>-
