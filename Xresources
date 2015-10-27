@@ -2,7 +2,8 @@ URxvt.scrollBar: false
 URxvt.depth: 32
 ! Colors
 *background: [85]#262626
-*foreground: #c2c2b0
+! *foreground: #c2c2b0
+*foreground: #82B600
 
 ! Black + DarkGrey
 *color0: #262626
