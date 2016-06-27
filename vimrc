@@ -23,7 +23,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'Shougo/vimshell'
 
 
 " Custom Plugins
@@ -31,6 +31,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'tomtom/checksyntax_vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'roman/golden-ratio'
+"NeoBundle 'java_getset.vim'
+NeoBundle 'scrooloose/syntastic'
 
 
 " Required:
@@ -44,6 +47,8 @@ filetype plugin indent on
 NeoBundleCheck
 " Syntax highlighting
 syntax on
+colorscheme burnttoast256
+hi Normal ctermbg=none
 " Row numbers
 set number
 
@@ -85,26 +90,48 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
 map <F2> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_all_projects.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_all_apps.sh <CR>
 map <F3> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_media_unit.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_media_unit.sh <CR>
 map <F4> :! bash /home/andlun/projects/newAndroidplayer/PLAYportNative/compile.sh <CR>
 map <F5> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_media_unit_old.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_media_unit_old.sh <CR>
 
 
+" Reload vimrc on save
 augroup reload_vimrc " {
 	autocmd!
 	autocmd BufWritePost $MYVIMRC source $MYVIMRC
 	augroup END " }
 
 
+" Enable mouse interaction
 set mouse=a
 
+" Move over screen lines insted of text lines
 nnoremap j gj
 nnoremap k gk
 
+" Text width
+" set tw=79
+"set formatoptions+=t
+set wrap linebreak nolist
+
 " NERDTree
 	map <C-n> :NERDTreeToggle<CR>
-    au VimEnter * NERDTree
+    " au VimEnter * NERDTree
+    let NERDTreeQuitOnOpen=1
 " airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+
+
+
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
