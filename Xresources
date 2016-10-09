@@ -1,3 +1,13 @@
+#define FONT           xft:Consolas:pixelsize=12:antialias=true:autohinting=true
+#define FONT_BOLD      xft:Consolas:bold:pixelsize=12:antialias=true:autohinting=true
+#define FONT_ITALIC    xft:Consolas:italic:pixelsize=12:antialias=true:autohinting=true
+#define FONT_UNDERLINE xft:Consolas:underline:pixelsize=12:antialias=true:autohinting=true
+
+
+
+URxvt*font: FONT
+URxvt*boldFont: FONT_BOLD
+
 URxvt.scrollBar: false
 URxvt.depth: 32
 ! Colors
