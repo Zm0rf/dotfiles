@@ -5,8 +5,8 @@
 
 
 
-URxvt*font: FONT
-URxvt*boldFont: FONT_BOLD
+! URxvt*font: FONT
+! URxvt*boldFont: FONT_BOLD
 
 URxvt.scrollBar: false
 URxvt.depth: 32

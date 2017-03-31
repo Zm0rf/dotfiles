@@ -1,26 +1,26 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-	if &compatible
-		set nocompatible               " Be iMproved
-	endif
+    "NeoBundle Scripts-----------------------------
+    if has('vim_starting')
+        if &compatible
+            set nocompatible               " Be iMproved
+        endif
 
-	" Required:
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+        " Required:
+        set runtimepath+=/home/andlun/.vim/bundle/neobundle.vim/
+    endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+    " Required:
+    call neobundle#begin(expand('/home/andlun/.vim/bundle'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+    " Let NeoBundle manage NeoBundle
+    " Required:
+    NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
+    " Add or remove your Bundles here:
+    NeoBundle 'Shougo/neosnippet.vim'
+    NeoBundle 'Shougo/neosnippet-snippets'
+    NeoBundle 'tpope/vim-fugitive'
+    NeoBundle 'ctrlpvim/ctrlp.vim'
+    NeoBundle 'flazz/vim-colorschemes'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -91,10 +91,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
-map <F2> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_all_projects.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_all_apps.sh <CR>
-map <F3> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_media_unit.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_media_unit.sh <CR>
-map <F4> :! bash /home/andlun/projects/newAndroidplayer/PLAYportNative/compile.sh <CR>
-map <F5> :! bash /home/andlun/projects/newAndroidplayer/dev_scripts/build_media_unit_old.sh && bash /home/andlun/projects/newAndroidplayer/dev_scripts/install_media_unit_old.sh <CR>
+map <F4> :! ant -find build.xml debug <CR>
+map <F5> :! bash /home/andlun/projects/newAndroidplayer/PLAYportNative/installDebug.sh <CR>
 
 
 " Reload vimrc on save
@@ -135,3 +133,7 @@ set laststatus=2
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 1
+"
+"
+autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+autocmd BufRead set makeprg=ant\ -find\ build.xml
