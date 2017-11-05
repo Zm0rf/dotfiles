@@ -1,50 +1,56 @@
-    "NeoBundle Scripts-----------------------------
-    if has('vim_starting')
-        if &compatible
-            set nocompatible               " Be iMproved
-        endif
-
-        " Required:
-        set runtimepath+=/home/andlun/.vim/bundle/neobundle.vim/
-    endif
-
-    " Required:
-    call neobundle#begin(expand('/home/andlun/.vim/bundle'))
-
-    " Let NeoBundle manage NeoBundle
-    " Required:
-    NeoBundleFetch 'Shougo/neobundle.vim'
-
-    " Add or remove your Bundles here:
-    NeoBundle 'Shougo/neosnippet.vim'
-    NeoBundle 'Shougo/neosnippet-snippets'
-    NeoBundle 'tpope/vim-fugitive'
-    NeoBundle 'ctrlpvim/ctrlp.vim'
-    NeoBundle 'flazz/vim-colorschemes'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell'
-
-
-" Custom Plugins
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'tomtom/checksyntax_vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'roman/golden-ratio'
-"NeoBundle 'java_getset.vim'
-NeoBundle 'scrooloose/syntastic'
-
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
 " Required:
-call neobundle#end()
+set runtimepath+=/home/zmorf/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/zmorf/.vim/bundle/dein.vim')
+  call dein#begin('/home/zmorf/.vim/bundle/dein.vim')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/zmorf/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+
+" Add or remove your Bundles here:
+    call dein#add( 'tpope/vim-fugitive')
+    call dein#add( 'ctrlpvim/ctrlp.vim')
+    call dein#add( 'flazz/vim-colorschemes')
+
+    " Custom Plugins
+    call dein#add( 'scrooloose/nerdtree')
+    call dein#add( 'ervandew/supertab')
+    call dein#add( 'tomtom/checksyntax_vim')
+    call dein#add( 'bling/vim-airline')
+    call dein#add( 'roman/golden-ratio')
+    call dein#add( 'scrooloose/syntastic')
+    call dein#add('elixir-lang/vim-elixir')
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell')
+
+
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
+
+
 " Syntax highlighting
 syntax on
 colorscheme burnttoast256
@@ -122,18 +128,9 @@ set wrap linebreak nolist
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
+" Show whitespaces
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list
 
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 1
-"
-"
 autocmd BufRead *.java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 autocmd BufRead set makeprg=ant\ -find\ build.xml
